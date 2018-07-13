@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{
+ background-color:#ffdf80;
+}
+input[type=text], select {
+    width: 35%;
+    padding: 12px 18px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 25%;
+    background-color:#4d1919;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]: {
+    background-color: White;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding-left:20px;
+    width:50%;
+}
+</style>
+<body>
+{% with messages=get_flashed_messages() %}
+ {% if messages %}
+  {% for message in messages %}
+   <p>{{ message }}</p>
+  {% endfor %}
+ {% endif %}
+ {% endwith %}
+<h3>CREATE NEW ACCOUNT</h3>
+
+<div>
+  <form action="/signup" method='post'>
+    <br><label for="fname"> Name</label><br>
+    <input type="text" id="fname" name="nm">
+
+    <br><label for="emailid">Email ID</label><br>
+    <input type="text" id="email" name="email">
+
+    <br><label for="password">Password</label><br>
+    <input type="password" name="pass">
+  
+    <br><br><br><input type="submit" value="Create Account"><br><br><br>
+  </form>
+</div>
+
+</body>
+</html>
