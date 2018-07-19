@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<title>list</title>
+<style>
+ body{
+  background-color:"#ffdf80";
+  }
+</style>
+</head>
+<body>
+ <h1>MY DIARY</h1>
+ {% with messages=get_flashed_messages() %}
+ {% if messages %}
+  {% for message in messages %}
+   <p>{{ message }}</p>
+  {% endfor %}
+ {% endif %}
+ {% endwith %}
+ <form action="/view" method='POST'>
+ <textarea rows="50" cols="50" name="content" placeholder="Enter today's date and share your thoughts"></textarea>
+ <input type="submit" value="Add" />
+ </form>
+ <h3>My Diary Notes :</h3>
+ <p>{{ content[0] }}</p>
+</body>
+</html>
+
+  
