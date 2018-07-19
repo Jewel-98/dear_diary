@@ -42,7 +42,7 @@ def login():
     #c=cur.fetchall()
     return redirect("/view/%s"%temail)
    else :
-    flash("Indirect username or password")
+    flash("Invalid username or password")
  return render_template("mydiarylogin.html")
 @app.route("/view/<email>",methods=['POST','GET'])
 def view(email):
