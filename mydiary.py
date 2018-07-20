@@ -8,7 +8,7 @@ def home():
 @app.route("/signup",methods=['POST','GET'])
 def signup():
  if request.method=='POST':
-  #try:
+  try:
    name=request.form['nm']
    email=request.form['email']
    password=request.form['pass']
@@ -18,11 +18,11 @@ def signup():
     con.commit()
     flash("NOW YOU CAN SHARE YOUR THOUGHTS AND SECRETS WITH DEAR DIARY:)")
     return render_template("mydiaryview.html",content="")
-  #except:
+  except:
    con.rollback()
    flash("SORRY SOMETHING WENT WRONG:( PLEASE TRY AGAIN!!")
    return render_template("mydiarysignup.html")
-  #finally:
+  finally:
    con.close()
  return render_template("mydiarysignup.html")
 @app.route("/login",methods=['POST','GET'])
@@ -38,8 +38,6 @@ def login():
   if int(len(x)) > 0:
    print x[0]
    if x[0]==tpassword:
-    #cur.execute("SELECT content FROM AUTHOR WHERE email=?",(temail,))
-    #c=cur.fetchall()
     return redirect("/view/%s"%temail)
    else :
     flash("Invalid username or password")
