@@ -36,7 +36,6 @@ def login():
   cur.execute("SELECT password FROM AUTHOR WHERE email = ?", (temail,))
   x=cur.fetchone()
   if int(len(x)) > 0:
-   print x[0]
    if x[0]==tpassword:
     return redirect("/view/%s"%temail)
    else :
