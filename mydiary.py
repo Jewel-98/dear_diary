@@ -33,13 +33,12 @@ def login():
   con=sql.connect("mydiary.db")
   con.row_factory = sql.Row
   cur = con.cursor()
-  cur.execute("SELECT password FROM AUTHOR WHERE email = ?", (temail,))
-  x=cur.fetchone()
-  if int(len(x)) > 0:
-   if x[0]==tpassword:
+  cur.execute("SELECT * FROM AUTHOR WHERE email = ? AND password=?", (temail,tpassword))
+  x=cur.fetchall()
+  if int(len(x)) == 1:
     return redirect("/view/%s"%temail)
-   else :
-    flash("Invalid username or password")
+  else :
+      flash("Invalid username or password")
  return render_template("mydiarylogin.html")
 @app.route("/view/<email>",methods=['POST','GET'])
 def view(email):
