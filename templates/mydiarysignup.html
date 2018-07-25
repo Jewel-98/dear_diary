@@ -9,16 +9,28 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script type = "text/javascript"
-         src = "{{url_for('static',filename='password.js')}}" ></script>
+  <script>
+  function validate(){
+    var x = document.forms["signform"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if(atpos <1 || dotpos<atpos+2 || dotpos+4!=x.length){
+      alert("Invalid email");
+      document.getElementById('signform').method="GET";
+    }
+    else{
+      document.getElementById('signform').method="POST";
+    }  
 
+  }
+  </script>
 
 
    <style>
    .centered{
     position: absolute;
     top:20%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);
     padding-top: 150px;
     width: 50%;
@@ -55,15 +67,14 @@
        display: inline-grid;
      }
 
-     .passmsg{
-       text-align: center;
-     }
+
 
 
   </style>
   </head>
   <body>
- {% with messages=get_flashed_messages() %}
+ 
+        {% with messages=get_flashed_messages() %}
         {% if messages %}
         <div class="container col-sm-offset-4 col-sm-4">
          <div class="alert alert-danger">
@@ -75,44 +86,49 @@
          </div>
        </div>
 
+
 <div class="container">
 
   <div class = 'centered'>
     <h1>Sign Up To Your DearDiary!!!</h1><br><br>
-  <form class="form-horizontal" action="/signup"  method='POST'>
+  <form id="signform" name = "signform" action="/signup" class="form-horizontal" onsubmit = "validate()" >
+
     <div class="form-group">
-      <label class="control-label col-sm-3" for="nm">Name:</label>
+      <label class="control-label col-sm-4" for="nm">Name:</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" id="nm"  name="nm" required>
+        <input type="text" class="form-control" id="nm"  name="nm">
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-3" for="email">Email:</label>
+      <label class="control-label col-sm-4" for="email">Email:</label>
       <div class="col-sm-5">
         <input type="email" class="form-control" id="email"  name="email" required>
-      </div>
+         
+      </div> 
     </div>
+
+    
+
+
+
     <div class="form-group">
-      <label class="control-label col-sm-3" for="pass">Password:  </label>
+      <label class="control-label col-sm-4" for="pass">Password:  </label>
       <div class="col-sm-5">
-        <input type="password" class="form-control" id="pass"  name="pass"  required>
+        <input type="password" class="form-control" id="pass"  name="pass" required>
       </div>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-3" for="confpass">Conform Password:  </label>
+
+     <div class="form-group">
+      <label class="control-label col-sm-4" for="pass">Conform Password:  </label>
       <div class="col-sm-5">
-        <input type="password" class="form-control" id="confpass"  name="confpass" onkeyup="check()" required>
-
+        <input type="password" class="form-control" id="cpass"  name="pass" required>
       </div>
-      <div id="passmsg"class="col-lg-5">
-      <h4><strong><span id='message'></span></strong></h4>
     </div>
-    </div>
+
 
     <div class="form-group">
-      <div class="col-sm-offset-4 col-sm-15">
-        <button type="submit" class="btn btn-success btn-lg" id="submit">Sign Up</button>
-
+      <div class="col-sm-offset-5 col-sm-15">
+        <button type="submit"  class="btn btn-success btn-lg">Sign Up</button>
       </div>
     </div>
   </form></div>
