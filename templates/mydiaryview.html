@@ -186,10 +186,12 @@ h4{
   font-family: 'Niconne', cursive;
 }
 textarea{
-    padding-right: 55%;
+    /*padding-right: 55%;*/
     border-style: solid  black;
     border-width: 3px 3px 3px 3px;
     height: 65vh;
+    width:145vh;
+    resize:horizontal;
    /* display: block;*/
     margin-left: 15%;
 
@@ -207,7 +209,9 @@ textarea{
   margin-top: 1%;
   float: right;
 }
-
+#container-fluid{
+  margin-left: -30%;
+}
 .viewsec{
  margin-left: 30%;
 }
@@ -221,7 +225,7 @@ h3{
   white-space: pre-wrap;
 }
 #aboutme{
-  margin-left: 30%
+  margin-left: 47%;
 }
 
 </style>
@@ -272,7 +276,7 @@ h3{
 
   <h4><span class="glyphicon glyphicon-pencil"></span>Add new thoughts</h4>
 
-  <textarea  name="content" ></textarea>
+  <textarea clos="500" name="content" ></textarea>
  </div>
  <div>
  <br>
@@ -297,7 +301,7 @@ h3{
     <div class="media-body">
       <strong><h5 class="media-heading">{{ row["cdate"] }}</h5></strong>
 
-      <p id="ctext">{{ row["content"] }}</p>
+      <pre>{{ row["content"] }}</pre>
 
     </div>
   </div>
