@@ -1,4 +1,5 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html>
 <head>
 <title>View Page</title>
@@ -11,28 +12,232 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 
-  .contentform{
-    margin-left:auto;
+  {
+
+
   }
+  .intro{
+       margin: 0;
+       padding: 0;
+       vertical-align: top;
+       width:100%;
+       min-height: 100vh;
+       height:100%;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size:cover;
+       background-image: url("static/rose.jpg");
 
 
-  body,html{
-   zoom: 100%;
-   height: auto;
-   overflow: auto;
-   position: relative;
-   width:100%;
-  /* background-repeat: no-repeat;
-   background position:center;
-   background-size:cover;*/
-   background-color:#ffdead;
-   /*background-image: url("https://image.freepik.com/free-photo/notebook-in-a-beautiful-gold-background-with-pretty-flowers_24972-72.jpg");*/
- }
+     }
+    h1{
+   font-family: 'Niconne', cursive;
+       font-size:80px;
+       color: #5c0404 ;
+
+       text-shadow: 0 0 30px #5c0404;
+       margin-left: 20%;
+       margin-right: 34%;
+
+
+}
+#addimg h1{
+  margin-left:10%;
+}
+
+.rotate {
+margin-top: 2%;
+margin-right: 10%;
+/* Safari */
+-webkit-transform: rotate(-12deg);
+
+/* Firefox */
+-moz-transform: rotate(-12deg);
+
+/* IE */
+-ms-transform: rotate(-12deg);
+
+/* Opera */
+-o-transform: rotate(-12deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+
+}
+ .button {
+    background-color:   #5c0404; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    margin-left: 30%;
+    margin-top:0%;
+    cursor: pointer;
+
+}
+
+  .navbar {
+    overflow: hidden; /* Hide overflow */
+    background-color: #5c0404; /* Dark background color */
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    float: left; /* Make sure that the links stay side-by-side */
+    display: block; /* Change the display to block, for responsive reasons (see below) */
+    color: white; /* White text color */
+   /* text-align: center; /* Center the text */
+    padding: 25px 20px; /* Add some padding */
+    text-decoration: none; /* Remove underline */
+    font-size: 30 px;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+    float: right; /* Float a link to the right */
+}
+
+/* Change color on hover/mouse-over */
+.navbar a:hover {
+    background-color: #fff; /* Grey background color */
+    color: #5c0404; /* Black text color */
+    height:50 px;
+}
+.button:hover
+{background-color:  #e4d3ae ;
+  color:#5c0404;
+  /*border-style: solid ;
+  border-size: 3px;
+  border-color: #5c0404;*/
+  box-shadow:  10px 10px 9px grey;
+
+}
+#navimg{
+  height:70px;
+  width: 250px ;
+
+}
+#pencil{
+
+  margin-left: 50%;
+  width:35%;
+  height:10%;
+
+margin-top: -5%;
+/* Safari */
+-webkit-transform: rotate(-65deg);
+
+/* Firefox */
+-moz-transform: rotate(-65deg);
+
+/* IE */
+-ms-transform: rotate(-65deg);
+
+/* Opera */
+-o-transform: rotate(-65deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+
+
+/* ################################   add page ########################### */
+
+
+#addimg{
+
+
+  margin: 0;
+       padding: 0;
+       vertical-align: top;
+       width:100%;
+       min-height: 100vh;
+       min-width: 100vh;
+       height:100%;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size:cover;
+       background-image: url("static/transrose.jpg");
+
+
+
+}
+ #dateform {
+margin-top: 30px;
+font-size: 25px;
+ margin-left: 15%;
+
+}
+.glyphicon{
+  font-size: 30px;
+  color:  #ab0707;
+}
+h4{
+  color: #ab0707;
+  font-weight: bold;
+  margin-left: 15%;
+  font-size: 38px;
+  font-family: 'Niconne', cursive;
+}
+textarea{
+    padding-right: 55%;
+    border-style: solid  black;
+    border-width: 3px 3px 3px 3px;
+    height: 65vh;
+   /* display: block;*/
+    margin-left: 15%;
+
+
+    background-color: #fff;
+    margin-top:2px;
+  }
+  input[type = 'submit']
+{
+  background-color: #ab0707;
+  width:100px;
+  color:white;
+  height: 40px;
+  margin-right: 48%;
+  margin-top: 1%;
+  float: right;
+}
+
+.viewsec{
+ margin-left: 30%;
+}
+h3{
+  color: #ab0707;
+  font-weight: bold;
+  font-size: 38px;
+  font-family: 'Niconne', cursive;
+}
+#ctext{
+  white-space: pre-wrap;
+}
+#aboutme{
+  margin-left: 30%
+}
+
 </style>
 </head>
 <body>
-<div class="container">
- <h1>MY DIARY</h1>
+<div class = "intro">
+
+<div class="navbar">
+
+ <strong> <a href="#aboutme">ABOUT ME</a>
+  <a href="#container-fluid">VIEW</a>
+  <a href="/logout" class="right">LOG OUT</a></strong>
+   <center><img id = "navimg" src = "static/logo(1).jpg"></center>
+</div>
+
+
  {% with messages=get_flashed_messages() %}
  {% if messages %}
   {% for message in messages %}
@@ -41,24 +246,72 @@
  {% endif %}
  {% endwith %}
 
- <form action="/view" method='POST'>
- <div id="dateform" class="col-lg-4">
+
+ <div class = "rotate"> <h1 >Hey !!</h1>
+  <h1>your secretkeeper</h1><h1> at your service ..</h1>
+  <strong><a style = "text-decoration:none" href  = "#addimg" class = "button">Let's talk</a></strong>
+  <img  id = "pencil" src = "static/newpencil(1).png">
+
+  </div>
+
+</div>
+<br><br>
+
+
+ <!--##########################################  add page ########### ###################################-->
+<div id = "addimg">
+  <h1>Hello {{ name }},</h1>
+  {% set email=  email  %}
+
+   <form action="{{url_for('addnew',email=email)}}" method='POST'>
+   <b> <div id="dateform" class="col-lg-4">
   <span class="glyphicon glyphicon-calendar"></span>
-  <input type="date" name="date" placeholder="dd/mm/yyyy">
- </div>
+  <input type="date" name="date" placeholder="dd/mm/yyyy" required>
+ </div></b>
  <div id="contentform" class="col-lg-12">
 
   <h4><span class="glyphicon glyphicon-pencil"></span>Add new thoughts</h4>
-  <textarea class="col-sm-8" name="content" placeholder="Enter today's date and share your thoughts"></textarea>
- </div>
- <div class="col-lg-2">
-  <input type="submit" value="Add" />
- </div>
- </div>
 
- </form>
- <h3>My Diary Notes :</h3>
- <p>{{ content[0] }}</p>
+  <textarea  name="content" ></textarea>
+ </div>
+ <div>
+ <br>
+  <input type="submit" value="Add" />
+  </div>
+
+   </form>
+
+
+ </div>
+<br><br>
+
+<div id="container-fluid">
+  <div class="viewsec">
+  <h3>My Diary Notes :</h3>
+{% for row in result %}
+
+  <div class="media">
+    <div class="media-left media-top">
+      <img src="static/logo.jpg" class="media-object"  style="width:80px">
+    </div>
+    <div class="media-body">
+      <strong><h5 class="media-heading">{{ row["cdate"] }}</h5></strong>
+
+      <p id="ctext">{{ row["content"] }}</p>
+
+    </div>
+  </div>
+{% endfor %}
 </div>
+</div>
+
+<br><br>
+
+<div id="aboutme">
+  <h3>About Me:</h3>
+  <b><p>Name: {{ name }}</p></b>
+  <b><p>Email: {{ email }}</p></b>
+</div>
+
 </body>
 </html>
