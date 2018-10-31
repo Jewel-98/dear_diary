@@ -3,7 +3,7 @@ import sqlite3 as sql
 app = Flask(__name__)
 app.secret_key="randomstring"
 @app.route("/")
-def home():
+def home():                                                                 # a function 'home'
  if 'email' in session:
     return redirect("/view")
  else:
